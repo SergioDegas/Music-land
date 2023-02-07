@@ -11,6 +11,9 @@ export const App = () => {
       <div>
         <p>Hello everybody</p>
       </div>
+      <div>
+        <p>Hello everybody</p>
+      </div>
     </>
   );
 };
