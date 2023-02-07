@@ -4,6 +4,7 @@ export const App = () => {
   return (
     <>
       <ResponsiveBar />
+
       <h1>Hello</h1>
       <div>
         <p>Hello everybody</p>
@@ -24,6 +25,7 @@ export const App = () => {
       <div>
         <p>Hello everybody</p>
       </div>
+
     </>
   );
 };
