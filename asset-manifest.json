@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Music-land/static/css/main.7acaea2f.css",
-    "main.js": "/Music-land/static/js/main.c16de7f2.js",
+    "main.js": "/Music-land/static/js/main.27395dbb.js",
     "index.html": "/Music-land/index.html",
     "main.7acaea2f.css.map": "/Music-land/static/css/main.7acaea2f.css.map",
-    "main.c16de7f2.js.map": "/Music-land/static/js/main.c16de7f2.js.map"
+    "main.27395dbb.js.map": "/Music-land/static/js/main.27395dbb.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.c16de7f2.js"
+    "static/js/main.27395dbb.js"
   ]
 }
