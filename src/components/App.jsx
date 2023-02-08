@@ -1,31 +1,11 @@
 import {ResponsiveBar} from './AppBar/AppBar'
+import TopChart from './TopChart/TopChart';
 
 export const App = () => {
   return (
     <>
       <ResponsiveBar />
-
-      <h1>Hello</h1>
-      <div>
-        <p>Hello everybody</p>
-      </div>
-      <div>
-        <p>Hello everybody</p>
-      </div>
-      <div>
-        <p>Hello everybody</p>
-      </div>
-      <h1>Hello</h1>
-      <div>
-        <p>Hello everybody</p>
-      </div>
-      <div>
-        <p>Hello everybody</p>
-      </div>
-      <div>
-        <p>Hello everybody</p>
-      </div>
-
+      <TopChart />
     </>
   );
 };
