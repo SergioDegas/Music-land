@@ -10,7 +10,7 @@ export const getTrackSearch = async query => {
   return results;
 };
 
-export const getTopTracks = async () => {
+export const Api = async () => {
   const url = `${BASE_URL}?method=chart.gettoptracks&api_key=${API_KEY}&format=json`;
 
   const response = await fetch(`${url}`);
