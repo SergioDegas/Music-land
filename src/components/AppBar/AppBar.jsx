@@ -1,62 +1,43 @@
-import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import { useState } from 'react';
-import AdbIcon from '@mui/icons-material/Adb';
+import CookieOutlinedIcon from '@mui/icons-material/CookieOutlined';
 import SearchIcon from '@mui/icons-material/Search';
 import { Search, SearchIconWrapper, StyledInputBase } from './AppBarStyled';
+import { useState,useMemo } from 'react';
+import { ThemeProvider } from '@mui/material/styles';
+import {theme} from '../../theme'
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const useToggleOnFocus = (initialState = false) => {
+  const [show, toggle] = useState(initialState);
+  
+  const eventHandlers = useMemo(() => ({
+    onFocus: () => toggle(true),
+    onBlur: () => toggle(false),
+  }), []);
+
+  return [show, eventHandlers];
+}
 
 export const ResponsiveBar = () => {
-  const [anchorElNav, setAnchorElNav] = useState('');
-  const [anchorElUser, setAnchorElUser] = useState('');
-//   const [hidden,setHidden] = useState(false)
-
-
-  
-// const handleVisible = () => {
-// setHidden(prevHidden => !prevHidden)
-// }
-
-//   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-//     setAnchorElNav(event.currentTarget);
-//   };
-//   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-//     setAnchorElUser(event.currentTarget);
-//   };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+  const [show, eventHandlers] = useToggleOnFocus()
 
   return (
+    <ThemeProvider theme={theme}>
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <CookieOutlinedIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
             component="a"
             href="/"
             sx={{
-              mr: 70,
+              mr: 15,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
@@ -65,46 +46,9 @@ export const ResponsiveBar = () => {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Recipes
           </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', }}}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-            //   onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <CookieOutlinedIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -123,59 +67,30 @@ export const ResponsiveBar = () => {
           >
             LOGO
           </Typography>
-          <Search>
+          <Search {...eventHandlers}>
             <SearchIconWrapper >
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Searh..."
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex',gap:'5px'}}}>
-            {pages.map((page) => (
-              <Button 
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box> 
-          
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton  sx={{ p: 0 }}> 
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-              
-            </Menu>
-          </Box>
+          {show && <Button type='submit' variant='outlined' color='secondary' sx={{my:2}}>Search</Button>}
+           {!show && <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex',gap:'5px'}}}>
+              <Button sx={{ my: 2, color: 'white', display: 'block' }}>Home</Button>
+              <Button sx={{ my: 2, color: 'white', display: 'block' }}>All recipes</Button>
+              <Button sx={{ my: 2, color: 'white', display: 'block' }}>Favorite recipes</Button>
+          </Box>}
+          <Button sx={{ position: "fixed", my: 2, color:'white', right: 300,}} >
+           Register
+          </Button>
+          <Button sx={{ position: "fixed", my: 2, color:'white', right: 200,}} >
+           Log In
+          </Button>
         </Toolbar>
       </Container>
     </AppBar>
+    </ThemeProvider>
   );
 }
