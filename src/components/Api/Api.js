@@ -10,8 +10,8 @@ export const getTrackSearch = async query => {
   return results;
 };
 
-export const getTopTracks = async () => {
-  const url = `${BASE_URL}?method=chart.gettoptracks&api_key=${API_KEY}&format=json`;
+export const Api = async (page) => {
+  const url = `${BASE_URL}?method=chart.gettoptracks&api_key=${API_KEY}&page=${page}&limit=4&format=json`;
 
   const response = await fetch(`${url}`);
   const { tracks } = await response.json();
