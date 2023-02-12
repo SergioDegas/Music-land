@@ -1,22 +1,49 @@
-const BASE_URL = 'http://ws.audioscrobbler.com/2.0/';
-const API_KEY = '4554dcf40305b27fe66f81befbdfccaa';
+import axios from 'axios';
+
+import { createAsyncThunk } from '@reduxjs/toolkit';
+const BASE_URL = 'https://api.spoonacular.com/';
+const API_KEY = '260c330d41254e2cbbfd0baff9987d8b';
+axios.defaults.baseURL = 'https://api.spoonacular.com/'; 
+
 // Render tracks by name
-export const getTrackSearch = async query => {
-  const url = `${BASE_URL}?method=track.search&track=${query}&api_key=${API_KEY}&format=json`;
+export const getRecipesSearch = async q => {
+axios.defaults.baseURL = 'https://api.spoonacular.com/'; 
 
-  const response = await fetch(`${url}`);
-  const { results } = await response.json();
-
+  const params = new URLSearchParams({
+    apiKey: API_KEY,
+    query: q,
+    number: 20,
+  });
+  const url = `${params}`;
+  const { data } = await axios.get(`recipes/complexSearch?${url}`);
+  const { results } = data;
+  // console.log(results);
   return results;
 };
 
-export const Api = async (page) => {
-  const url = `${BASE_URL}?method=chart.gettoptracks&api_key=${API_KEY}&page=${page}&limit=4&format=json`;
 
-  const response = await fetch(`${url}`);
-  const { tracks } = await response.json();
+export const ContactAddApi = createAsyncThunk()(
+  'recipes/search',
+  async ({ query }, thunkAPI) => {
+    try {
+      const { data } = await axios.get('/recipes', { query });
+      const { results } = data;
+      return results;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
 
-  const { track } = tracks;
 
-  return track;
+
+export const getRecipesById = async id => {
+  const url = `${BASE_URL}recipes/656329/information?apiKey=${API_KEY}`;
+
+  const data = await axios.get(`${url}`);
+
+  // console.log(data);
+
+  return data;
 };
+// export default getRecipesById;
