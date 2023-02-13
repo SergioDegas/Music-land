@@ -1,96 +1,244 @@
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
+import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import CookieOutlinedIcon from '@mui/icons-material/CookieOutlined';
-import SearchIcon from '@mui/icons-material/Search';
-import { Search, SearchIconWrapper, StyledInputBase } from './AppBarStyled';
-import { useState,useMemo } from 'react';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
+import { useState, useMemo } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
-import {theme} from '../../theme'
+import CookieOutlinedIcon from '@mui/icons-material/CookieOutlined';
+import Button from '@mui/material/Button';
+import {
+  Search,
+  SearchIconWrapper,
+  StyledInputBase,
+  DrawerHeader,
+  AppBar,
+  Main,
+} from './AppBarStyled';
+import SearchIcon from '@mui/icons-material/Search';
+import { theme } from '../../theme';
+import { NavLink } from 'react-router-dom';
+import Link from '@mui/material/Link';
 
+
+const drawerWidth = 240;
 const useToggleOnFocus = (initialState = false) => {
   const [show, toggle] = useState(initialState);
-  
-  const eventHandlers = useMemo(() => ({
-    onFocus: () => toggle(true),
-    onBlur: () => toggle(false),
-  }), []);
+
+  const eventHandlers = useMemo(
+    () => ({
+      onFocus: () => toggle(true),
+      onBlur: () => toggle(false),
+    }),
+    []
+  );
 
   return [show, eventHandlers];
-}
+};
 
-export const ResponsiveBar = () => {
-  const [show, eventHandlers] = useToggleOnFocus()
+export const Header = () => {
+  const [open, setOpen] = useState(false);
+  const [show, eventHandlers] = useToggleOnFocus();
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
 
   return (
     <ThemeProvider theme={theme}>
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <CookieOutlinedIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 15,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            Recipes
-          </Typography>
-          <CookieOutlinedIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
-          <Search {...eventHandlers}>
-            <SearchIconWrapper >
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Searh..."
-              inputProps={{ 'aria-label': 'search' }}
+      <Box sx={{ heigth: '20%' }}>
+        <CssBaseline />
+        <AppBar position="static" open={open}>
+          <Toolbar disableGutters>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{ ml: 8, mr: 0.5, ...(open && { display: 'none' }) }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <CookieOutlinedIcon
+              sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
             />
-          </Search>
-          {show && <Button type='submit' variant='outlined' color='secondary' sx={{my:2}}>Search</Button>}
-           {!show && <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex',gap:'5px'}}}>
-              <Button sx={{ my: 2, color: 'white', display: 'block' }}>Home</Button>
-              <Button sx={{ my: 2, color: 'white', display: 'block' }}>All recipes</Button>
-              <Button sx={{ my: 2, color: 'white', display: 'block' }}>Favorite recipes</Button>
-          </Box>}
-          <Button sx={{ position: "fixed", my: 2, color:'white', right: 300,}} >
-           Register
-          </Button>
-          <Button sx={{ position: "fixed", my: 2, color:'white', right: 200,}} >
-           Log In
-          </Button>
-        </Toolbar>
-      </Container>
-    </AppBar>
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="/"
+              sx={{
+                mr: 15,
+                display: { xs: 'none', md: 'flex' },
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              Recipes
+            </Typography>
+            <CookieOutlinedIcon
+              sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}
+            />
+            <Typography
+              variant="h5"
+              noWrap
+              component="a"
+              href=""
+              sx={{
+                mr: 2,
+                display: { xs: 'flex', md: 'none' },
+                flexGrow: 1,
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              LOGO
+            </Typography>
+            <Box sx={{ display: 'flex', position: 'fixed', left: 700 }}>
+              <Search {...eventHandlers}>
+                <SearchIconWrapper>
+                  <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                  placeholder="Searh..."
+                  inputProps={{ 'aria-label': 'search' }}
+                />
+              </Search>
+              {show && (
+                <Button
+                  type="submit"
+                  variant="outlined"
+                  color="secondary"
+                  sx={{ my: 2 }}
+                >
+                  Search
+                </Button>
+              )}
+              {!show && (
+                <Box
+                  sx={{
+                    ml: 2,
+                    flexGrow: 1,
+                    display: { xs: 'none', md: 'flex', gap: '5px' },
+                  }}
+                >
+                  <NavLink to="/">
+                    <Link underline='none'>
+                    <Typography
+                      sx={{ my: 2, color: 'white', display: 'block' }}
+                    >
+                      Home
+                    </Typography>
+                    </Link>
+                  </NavLink>
+                  <NavLink to="/allrecepies">
+                  <Link underline='none'>
+                    <Typography
+                      sx={{ my: 2, color: 'white', display: 'block' }}
+                    >
+                      All recepies
+                    </Typography>
+                  </Link>
+                  </NavLink>
+                  <NavLink to="/favoriterecepies">
+                    <Link underline='none'>
+                    <Typography
+                      sx={{ my: 2, color: 'white', display: 'block' }}
+                    >
+                      Favorite recepies
+                    </Typography>
+                    </Link>
+                  </NavLink>
+                </Box>
+              )}
+            </Box>
+            <Button
+              sx={{ position: 'fixed', my: 2, color: 'white', right: 300 }}
+            >
+              Register
+            </Button>
+            <Button
+              sx={{ position: 'fixed', my: 2, color: 'white', right: 200 }}
+            >
+              Log In
+            </Button>
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          sx={{
+            width: drawerWidth,
+            flexShrink: 0,
+            '& .MuiDrawer-paper': {
+              width: drawerWidth,
+              boxSizing: 'border-box',
+            },
+          }}
+          variant="persistent"
+          anchor="left"
+          open={open}
+        >
+          <DrawerHeader>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === 'ltr' ? (
+                <ChevronLeftIcon />
+              ) : (
+                <ChevronRightIcon />
+              )}
+            </IconButton>
+          </DrawerHeader>
+          <Divider />
+          <List>
+            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+              <ListItem key={text} disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+          <Divider />
+          <List>
+            {['All mail', 'Trash', 'Spam'].map((text, index) => (
+              <ListItem key={text} disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+        <Main open={open}>
+          <DrawerHeader />
+        </Main>
+      </Box>
     </ThemeProvider>
   );
-}
+};
