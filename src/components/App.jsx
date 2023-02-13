@@ -8,6 +8,7 @@ const AllRecepies = lazy(() => import('../pages/AllRecepies/AllRecepies'))
 const FavoriteRecepies = lazy(() => import('../pages/FavoriteRecepies/FavoriteRecepies'))
 export const App = () => {
   return (
+  <>
     <Routes>
       <Route path='/' element={<SharedLayout/>}>
         <Route index element={<Homepage/>}/>
@@ -16,6 +17,7 @@ export const App = () => {
         <Route path="*" element={<NotFound/>}/>
       </Route>
     </Routes> 
+    </>
   );
 };
  
