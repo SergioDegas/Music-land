@@ -1,15 +1,9 @@
-
-
-
-import {ResponsiveBar} from './AppBar/AppBar'
-
+import { ResponsiveBar } from './AppBar/AppBar';
 
 export const App = () => {
-
-   return (
+  return (
     <>
       <ResponsiveBar />
-  
     </>
   );
 };

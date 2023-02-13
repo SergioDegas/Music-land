@@ -7,7 +7,7 @@ import './index.css';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <StyledEngineProvider injectFirst>
-    <App />
+      <App />
     </StyledEngineProvider>
   </React.StrictMode>
 );

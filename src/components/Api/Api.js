@@ -24,10 +24,14 @@ axios.defaults.baseURL = 'https://api.spoonacular.com/';
 
 export const ContactAddApi = createAsyncThunk()(
   'recipes/search',
-  async ({ query }, thunkAPI) => {
+  async (query, thunkAPI) => {
+    
     try {
-      const { data } = await axios.get('/recipes', { query });
+      const { data } = await axios.get(
+        `recipes/complexSearch?query=${query}&number=10?apiKey=${API_KEY}`
+      );
       const { results } = data;
+      console.log(results);
       return results;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
