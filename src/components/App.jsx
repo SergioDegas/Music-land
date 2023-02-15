@@ -1,12 +1,18 @@
 import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
 import { SharedLayout } from './SharedLayout/SharedLayout';
+import { getSearchRecipes } from './redux/recipes/operation';
+import { useDispatch } from 'react-redux';
 
 const Homepage = lazy(() => import('../pages/Homepage/Homepage'))
 const NotFound = lazy(() => import('../pages/NotFound/NotFound'))
 const AllRecepies = lazy(() => import('../pages/AllRecepies/AllRecepies'))
 const FavoriteRecepies = lazy(() => import('../pages/FavoriteRecepies/FavoriteRecepies'))
 export const App = () => {
+
+
+  const res = getSearchRecipes('pizzA')
+
   return (
   <>
     <Routes>
