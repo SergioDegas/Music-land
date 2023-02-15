@@ -31,6 +31,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { theme } from '../../theme';
 import { NavLink } from 'react-router-dom';
 import Link from '@mui/material/Link';
+import { Register } from './Register';
 
 
 const drawerWidth = 240;
@@ -174,16 +175,7 @@ export const Header = () => {
                 </Box>
               )}
             </Box>
-            <Button
-              sx={{ position: 'fixed', my: 2, color: 'white', right: 300 }}
-            >
-              Register
-            </Button>
-            <Button
-              sx={{ position: 'fixed', my: 2, color: 'white', right: 200 }}
-            >
-              Log In
-            </Button>
+            <Register/>
           </Toolbar>
         </AppBar>
         <Drawer
