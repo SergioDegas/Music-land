@@ -145,31 +145,31 @@ export const Header = () => {
                   }}
                 >
                   <NavLink to="/">
-                    <Link underline='none'>
+                 
                     <Typography
                       sx={{ my: 2, color: 'white', display: 'block' }}
                     >
                       Home
                     </Typography>
-                    </Link>
+                   
                   </NavLink>
                   <NavLink to="/allrecepies">
-                  <Link underline='none'>
+                 
                     <Typography
                       sx={{ my: 2, color: 'white', display: 'block' }}
                     >
                       All recepies
                     </Typography>
-                  </Link>
+                
                   </NavLink>
                   <NavLink to="/favoriterecepies">
-                    <Link underline='none'>
+                    
                     <Typography
                       sx={{ my: 2, color: 'white', display: 'block' }}
                     >
                       Favorite recepies
                     </Typography>
-                    </Link>
+                   
                   </NavLink>
                 </Box>
               )}
