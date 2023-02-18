@@ -1,4 +1,4 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+// import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 // axios.defaults.baseURL = 'https://api.spoonacular.com/';
 // const BASE_URL = 'https://api.spoonacular.com/';
@@ -53,7 +53,7 @@ const API_KEY = 'd9d1e4a74b16060862fb47c08a2dac20';
 export const getTrendingMovies = async () => {
   const url = `${BASE_URL}trending/movie/day?api_key=${API_KEY}`;
 
-  const response = await fetch(`${url}`);
+  const response = await axios.get(`${url}`);
   const data = await response.json();
 
   return data;
@@ -61,7 +61,7 @@ export const getTrendingMovies = async () => {
 // Search of movies by name
 export const searchByName = async query => {
   const url = `${BASE_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`;
-  const response = await fetch(`${url}`);
+  const response = await axios.get(`${url}`);
   const data = await response.json();
 
   return data;
@@ -71,7 +71,7 @@ export const searchByName = async query => {
 export const getMovieDetails = async id => {
   const url = `${BASE_URL}movie/${id}?api_key=${API_KEY}&language=en-US`;
 
-  const response = await fetch(`${url}`);
+  const response = await axios.get(`${url}`);
   const data = await response.json();
 
   return data;
@@ -81,7 +81,7 @@ export const getMovieDetails = async id => {
 export const getMovieCredits = async id => {
   const url = `${BASE_URL}movie/${id}/credits?api_key=${API_KEY}&language=en-US`;
 
-  const response = await fetch(`${url}`);
+  const response = await axios.get(`${url}`);
   const data = await response.json();
 
   return data;
@@ -91,7 +91,7 @@ export const getMovieCredits = async id => {
 export const getMovieReviews = async id => {
   const url = `${BASE_URL}movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`;
 
-  const response = await fetch(`${url}`);
+  const response = await axios.get(`${url}`);
   const data = await response.json();
 
   return data;
