@@ -31,9 +31,13 @@ import SearchIcon from '@mui/icons-material/Search';
 import { theme } from '../../theme';
 import { NavLink } from 'react-router-dom';
 import Link from '@mui/material/Link';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { selectSearch } from 'components/redux/recipes/selector';
 import { searchByName } from 'components/redux/recipes/operation';
+
+import { Register } from './Register';
+
 
 
 const drawerWidth = 240;
@@ -188,16 +192,7 @@ const value = useSelector(selectSearch)
                 </Box>
               )}
             </Box>
-            <Button
-              sx={{ position: 'fixed', my: 2, color: 'white', right: 300 }}
-            >
-              Register
-            </Button>
-            <Button
-              sx={{ position: 'fixed', my: 2, color: 'white', right: 200 }}
-            >
-              Log In
-            </Button>
+            <Register/>
           </Toolbar>
         </AppBar>
         <Drawer
