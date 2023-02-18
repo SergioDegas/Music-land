@@ -1,5 +1,8 @@
-const { createSlice } = require('@reduxjs/toolkit');
-const { getSearchRecipes } = require('./operation');
+import { createSlice } from '@reduxjs/toolkit';
+import { searchByName } from './operation';
+
+
+
 
 const handelPending = state => {
   state.isLoading = true;
@@ -15,8 +18,8 @@ const handelFulfilled = (state, action) => {
   state.query = action.payload
 };
 
-const RecipesSlice = createSlice({
-  name: 'Recipes',
+const MovieSlice = createSlice({
+  name: 'movie',
   initialState: {
     items: [],
     query: '',
@@ -24,12 +27,11 @@ const RecipesSlice = createSlice({
     error: null,
     },
     extraReducers: builder => {
-        builder
-          .addCase(getSearchRecipes.pending, handelPending)
-          .addCase(getSearchRecipes.rejected, handelReject)
-          .addCase(getSearchRecipes.fulfilled, handelFulfilled);
+        builder.addCase(searchByName.pending, handelPending)
+          .addCase(searchByName.rejected, handelReject)
+          .addCase(searchByName.fulfilled, handelFulfilled);
     
     }
 });
 
-export const RecipesReducer = RecipesSlice.reducer
+export const MovieReducer = MovieSlice.reducer;
