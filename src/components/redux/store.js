@@ -10,8 +10,9 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { MovieReducer } from './recipes/slice';
 
-import { RecipesReducer } from './recipes/slice';
+
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -27,7 +28,7 @@ const persistConfig = {
 
 }
 const rootReducer = combineReducers({
-  recipes: RecipesReducer,
+  movie: MovieReducer,
 });
 const persReducer = persistReducer(persistConfig,rootReducer)
 

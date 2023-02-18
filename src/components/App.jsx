@@ -1,25 +1,24 @@
 import { Routes, Route } from 'react-router-dom';
-import { lazy, useEffect } from 'react';
+import { lazy, useEffect,  } from 'react';
 import { SharedLayout } from './SharedLayout/SharedLayout';
-import { getSearchRecipes, searchByName } from './redux/recipes/operation';
+import { searchByName } from './redux/recipes/operation';
 import { useDispatch } from 'react-redux';
-import { async } from 'q';
+
+
 
 const Homepage = lazy(() => import('../pages/Homepage/Homepage'))
 const NotFound = lazy(() => import('../pages/NotFound/NotFound'))
 const AllRecepies = lazy(() => import('../pages/AllRecepies/AllRecepies'))
 const FavoriteRecepies = lazy(() => import('../pages/FavoriteRecepies/FavoriteRecepies'))
 export const App = () => {
-  const fetch = async () => {
-  try {
-    const responce = await getSearchRecipes();
-    console.log(responce);
-  } catch (error) {
-    console.log(error);
-  }
+ const dispatch = useDispatch()
   
-  }
-  fetch()
+  useEffect(() => {
+ dispatch(searchByName());;
+  
+   
+  }, [dispatch])
+  
 
   return (
   <>

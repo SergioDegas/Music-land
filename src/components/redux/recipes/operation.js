@@ -1,4 +1,4 @@
-// import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 // axios.defaults.baseURL = 'https://api.spoonacular.com/';
 // const BASE_URL = 'https://api.spoonacular.com/';
@@ -15,10 +15,10 @@ import axios from 'axios';
 
 // export const getSearchRecipes = createAsyncThunk(
 //   'recipes/search',
-//   async (_, thunkAPI) => {
+//   async (query, thunkAPI) => {
 //     try {
 //       const { data } = await axios.get(
-//         `recipes/complexSearch?query=pizza&number=10?apiKey=${API_KEY}`
+//         `search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
 //       );
 //       return data;
 //     } catch (error) {
@@ -50,6 +50,7 @@ import axios from 'axios';
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = 'd9d1e4a74b16060862fb47c08a2dac20';
 // render trending movies
+axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 export const getTrendingMovies = async () => {
   const url = `${BASE_URL}trending/movie/day?api_key=${API_KEY}`;
 
@@ -59,13 +60,20 @@ export const getTrendingMovies = async () => {
   return data;
 };
 // Search of movies by name
-export const searchByName = async query => {
-  const url = `${BASE_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`;
-  const response = await axios.get(`${url}`);
-  const data = await response.json();
+export const searchByName =  createAsyncThunk(
+  'recipes/search',
+  async (query, thunkAPI) => {
+    try {
+      const { data } = await axios.get(
+        `search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
+      );
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
-  return data;
-};
 
 // Full information about the films
 export const getMovieDetails = async id => {

@@ -15,7 +15,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import CookieOutlinedIcon from '@mui/icons-material/CookieOutlined';
 import Button from '@mui/material/Button';
@@ -31,13 +31,19 @@ import SearchIcon from '@mui/icons-material/Search';
 import { theme } from '../../theme';
 import { NavLink } from 'react-router-dom';
 import Link from '@mui/material/Link';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { selectSearch } from 'components/redux/recipes/selector';
+import { searchByName } from 'components/redux/recipes/operation';
+
 import { Register } from './Register';
+
 
 
 const drawerWidth = 240;
 const useToggleOnFocus = (initialState = false) => {
   const [show, toggle] = useState(initialState);
-
+ 
   const eventHandlers = useMemo(
     () => ({
       onFocus: () => toggle(true),
@@ -50,6 +56,20 @@ const useToggleOnFocus = (initialState = false) => {
 };
 
 export const Header = () => {
+   
+   const dispatch = useDispatch();
+const value = useSelector(selectSearch)
+
+ console.log(value);
+  //  dispatch(searchByName(query));
+   const handleQuery = e => {
+     e.preventDefault();
+
+     const inputValue = e.target.value;
+     console.log(inputValue);
+     dispatch(searchByName(inputValue));
+   };
+
   const [open, setOpen] = useState(false);
   const [show, eventHandlers] = useToggleOnFocus();
 
@@ -62,6 +82,7 @@ export const Header = () => {
   };
 
   return (
+
     <ThemeProvider theme={theme}>
       <Box sx={{ heigth: '20%' }}>
         <CssBaseline />
@@ -123,6 +144,8 @@ export const Header = () => {
                   <SearchIcon />
                 </SearchIconWrapper>
                 <StyledInputBase
+                  onSubmit={handleQuery}
+                  name="search"
                   placeholder="Searh..."
                   inputProps={{ 'aria-label': 'search' }}
                 />
@@ -146,31 +169,25 @@ export const Header = () => {
                   }}
                 >
                   <NavLink to="/">
-                 
                     <Typography
                       sx={{ my: 2, color: 'white', display: 'block' }}
                     >
                       Home
                     </Typography>
-                   
                   </NavLink>
                   <NavLink to="/allrecepies">
-                 
                     <Typography
                       sx={{ my: 2, color: 'white', display: 'block' }}
                     >
                       All recepies
                     </Typography>
-                
                   </NavLink>
                   <NavLink to="/favoriterecepies">
-                    
                     <Typography
                       sx={{ my: 2, color: 'white', display: 'block' }}
                     >
                       Favorite recepies
                     </Typography>
-                   
                   </NavLink>
                 </Box>
               )}
