@@ -15,7 +15,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import CookieOutlinedIcon from '@mui/icons-material/CookieOutlined';
 import Button from '@mui/material/Button';
@@ -30,7 +30,6 @@ import {
 import SearchIcon from '@mui/icons-material/Search';
 import { theme } from '../../theme';
 import { NavLink } from 'react-router-dom';
-import Link from '@mui/material/Link';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { selectSearch } from 'components/redux/recipes/selector';

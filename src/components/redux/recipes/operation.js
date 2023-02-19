@@ -5,20 +5,19 @@ const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = 'd9d1e4a74b16060862fb47c08a2dac20';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
-// render trending movies
 export const getTrendingMovies = createAsyncThunk(
-  'movie/search',
-  async (_, thunkAPI) => {
-    try {
-      const { data } = await axios.get(
-        `${BASE_URL}trending/movie/day?api_key=${API_KEY}`
-      );
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
+  'movie/trends',
+  async(_,thunkAPI) => {
+  try {
+    const {data} = await axios.get(`trending/movie/day?api_key=${API_KEY}`)
+    return data;
+
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
   }
-);
+  }
+  )
+
 
 // Search of movies by name
 export const searchByName = createAsyncThunk(
