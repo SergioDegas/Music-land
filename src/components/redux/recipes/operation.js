@@ -49,19 +49,32 @@ import axios from 'axios';
 // };
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = 'd9d1e4a74b16060862fb47c08a2dac20';
-// render trending movies
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
-export const getTrendingMovies = async () => {
-  const url = `${BASE_URL}trending/movie/day?api_key=${API_KEY}`;
 
-  const response = await axios.get(`${url}`);
-  const data = await response.json();
+export const getTrendingMovies = createAsyncThunk(
+  'movie/trends',
+  async(_,thunkAPI) => {
+  try {
+    const {data} = await axios.get(`trending/movie/day?api_key=${API_KEY}`)
+    return data;
 
-  return data;
-};
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+  }
+  )
+
+// export const getTrendingMovie = async () => {
+//   const url = `${BASE_URL}trending/movie/day?api_key=${API_KEY}`;
+
+//   const response = await axios.get(`${url}`);
+//   const data = await response.json();
+
+//   return data;
+// };
 // Search of movies by name
 export const searchByName =  createAsyncThunk(
-  'recipes/search',
+  'movies/search',
   async (query, thunkAPI) => {
     try {
       const { data } = await axios.get(

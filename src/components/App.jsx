@@ -1,8 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
-import { lazy, useEffect,  } from 'react';
+import { lazy, } from 'react';
 import { SharedLayout } from './SharedLayout/SharedLayout';
-import { searchByName } from './redux/recipes/operation';
-import { useDispatch } from 'react-redux';
+// import { searchByName } from './redux/recipes/operation';
+// import { useDispatch } from 'react-redux';
+
 
 
 
@@ -11,15 +12,7 @@ const NotFound = lazy(() => import('../pages/NotFound/NotFound'))
 const AllRecepies = lazy(() => import('../pages/AllRecepies/AllRecepies'))
 const FavoriteRecepies = lazy(() => import('../pages/FavoriteRecepies/FavoriteRecepies'))
 export const App = () => {
- const dispatch = useDispatch()
   
-  useEffect(() => {
- dispatch(searchByName());;
-  
-   
-  }, [dispatch])
-  
-
   return (
   <>
     <Routes>

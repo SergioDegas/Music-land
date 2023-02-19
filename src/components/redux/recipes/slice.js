@@ -1,8 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { searchByName } from './operation';
+import { getTrendingMovies } from './operation';
 
 
-
+const handelFulfilledTrend = (state,action) => {
+state.isLoading = false;
+state.error = null;
+state.items = action.payload;
+}
 
 const handelPending = state => {
   state.isLoading = true;
@@ -27,9 +32,13 @@ const MovieSlice = createSlice({
     error: null,
     },
     extraReducers: builder => {
-        builder.addCase(searchByName.pending, handelPending)
+        builder
+          .addCase(searchByName.pending, handelPending)
           .addCase(searchByName.rejected, handelReject)
-          .addCase(searchByName.fulfilled, handelFulfilled);
+          .addCase(searchByName.fulfilled, handelFulfilled)
+          .addCase(getTrendingMovies.pending,handelPending)
+          .addCase(getTrendingMovies.rejected,handelReject)
+          .addCase(getTrendingMovies.fulfilled,handelFulfilledTrend)
     
     }
 });
