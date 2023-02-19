@@ -14,14 +14,8 @@ const Homepage = () => {
   }, [dispatch]);
 
   return (
-    <ul>
-    {results && results.map(({id,title}) => (
-    <li key={id}>
-        <h1>{title}</h1>
-    </li>
-
-    ))}
-    </ul>
+  <>
+  </>
     )
 };
 
