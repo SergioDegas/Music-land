@@ -18,6 +18,7 @@ export const App = () => {
     <Routes>
       <Route path='/' element={<SharedLayout/>}>
         <Route index element={<Homepage/>}/>
+        
         <Route path='/allrecepies' element={<AllRecepies/>}/>
         <Route path='/favoriterecepies' element={<FavoriteRecepies/>}></Route>
         <Route path="*" element={<NotFound/>}/>
@@ -26,4 +27,3 @@ export const App = () => {
     </>
   );
 };
- 

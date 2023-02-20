@@ -5,7 +5,10 @@ export const theme = createTheme({
     palette: {
       primary: {
         main: '#000',
-        end:'#11cb5f'
+        end:'#11cb5f',
+        good:'green',
+        normal:'yellow',
+        bad:'red',
       },
       secondary: {
         // This is green.A700 as hex.
