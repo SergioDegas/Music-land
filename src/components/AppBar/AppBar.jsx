@@ -145,7 +145,7 @@ const value = useSelector(selectSearch)
                 <StyledInputBase
                   onSubmit={handleQuery}
                   name="search"
-                  placeholder="Searh..."
+                  placeholder="Search..."
                   inputProps={{ 'aria-label': 'search' }}
                 />
               </Search>

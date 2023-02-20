@@ -2,10 +2,12 @@ import { getTrendingMovies } from 'components/redux/recipes/operation';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectMovie } from 'components/redux/recipes/selector';
+import { Cards } from 'components/Cards/Cards';
+
 
 const Homepage = () => {
   const dispatch = useDispatch();
-  const {results} = useSelector(selectMovie);
+  
 
   
 
@@ -15,6 +17,7 @@ const Homepage = () => {
 
   return (
   <>
+  <Cards/>
   </>
     )
 };
