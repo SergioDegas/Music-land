@@ -57,9 +57,9 @@ const useToggleOnFocus = (initialState = false) => {
 export const Header = () => {
    
    const dispatch = useDispatch();
-const value = useSelector(selectSearch)
+// const value = useSelector(selectSearch)
 
- console.log(value);
+//  console.log(value);
   //  dispatch(searchByName(query));
    const handleQuery = e => {
      e.preventDefault();

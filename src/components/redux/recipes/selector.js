@@ -1,10 +1,14 @@
 
 
-export const selectSearch = state => state.movie.query
+export const selectSearch = state => state.movie.query;
+
+export const selectPage = state => state.movie.page;
 
 export const selectFilterByName = state => state.filter;
 
 export const selectMovie = state => state.movie.items;
+
+export const selectMovieID = state => state.movie.itemsID;
 
 export const selectFavorite = state => state.movie.favorite;
 
