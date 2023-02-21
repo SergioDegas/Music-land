@@ -1,14 +1,13 @@
-import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { selectMovie } from 'components/redux/recipes/selector';
 import { useSelector } from 'react-redux';
 import { List, Item, Img } from './CardsStyled';
-import CircularProgress from '@mui/material/CircularProgress';
+import { Box } from '@mui/material';
+import {CircularDeterminate} from './Circular'
+import { FilmModal } from './CardsModal';
 
 
 export const Cards = () => {
@@ -18,6 +17,7 @@ export const Cards = () => {
     <List>
       {results.map(({ title, id, poster_path, vote_average, overview }) => (
         <Item key={id}>
+          <Box sx={{position: 'relative'}}>
           <Card sx={{ maxWidth: 342, minHeight: 629 }}>
             <div style={{ overflow: 'hidden' }}>
               <Img
@@ -25,20 +25,18 @@ export const Cards = () => {
                 alt="img"
               />
             </div>
-            <CardContent sx={{ p: 1 }}>
-              <Typography gutterBottom component="div">
+            <CardContent sx={{ pt:4  }}>
+              <Typography sx={{fontWeight: 'bold'}} gutterBottom component="div">
                 {title}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
-              <CircularProgress variant="determinate" value={Math.round(vote_average * 10)}/>
-              UserStat {Math.round(vote_average * 10)} %
-              </Typography>
+              <Box sx={{position: 'absolute',bottom:95, right:5}}>
+              <CircularDeterminate percent={vote_average}/>
+              </Box>
+             
             </CardContent>
-            <CardActions>
-              <Button size="small">Share</Button>
-              <Button size="small">Learn More</Button>
-            </CardActions>
+            <FilmModal id ={id}/>
           </Card>
+          </Box>
         </Item>
       ))}
     </List>
