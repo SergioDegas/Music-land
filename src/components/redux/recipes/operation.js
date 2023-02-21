@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const BASE_URL = 'https://api.themoviedb.org/3/';
+
 const API_KEY = 'd9d1e4a74b16060862fb47c08a2dac20';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
@@ -22,10 +22,10 @@ export const getTrendingMovies = createAsyncThunk(
 // Search of movies by name
 export const searchByName = createAsyncThunk(
   'movie/search',
-  async ({ query, page }, thunkAPI) => {
+  async ({ query, page=1 }, thunkAPI) => {
     try {
       const { data } = await axios.get(
-        `search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false&page=${page}`
+        `search/movie?api_key=${API_KEY}&language=en-US&query=${query}&include_adult=false&page=${page}`
       );
       return data;
     } catch (error) {
