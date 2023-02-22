@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { getMovieDetails } from 'components/redux/recipes/operation';
-import { selectMovieID } from 'components/redux/recipes/selector';
+import { selectMovieID, selectMovieTrailer } from 'components/redux/recipes/selector';
 import moment from 'moment/moment';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,7 +12,7 @@ import {
   Backdrop,
   PosterPath,
   Title,
-  Genres,
+
   Text,
   TextTitle,
 } from './CardsByID.styled';
@@ -24,11 +24,22 @@ function CardsByID() {
   useEffect(() => {
     dispatch(getMovieDetails('76600'));
   }, [dispatch]);
-let formattedDate
+    const [trailerKey, setTrailerKey] = useState();
+    const results = useSelector(selectMovieTrailer);
+    useEffect(() => {
+      const newTrailerKeys = results.map(({ results }) => {
+        return results.map(({ key, name }) => {
+          return { key, name };
+        });
+      });
+
+      setTrailerKey(newTrailerKeys);
+    }, [results]);
+
+
   return (
     <>
       <section>
-
         {Array.isArray(movieDetails) &&
           movieDetails.map(
             ({
@@ -66,7 +77,6 @@ let formattedDate
                           }
                           alt={original_title}
                         />
-
                       </Box>
 
                       <Box sx={{ ml: 4 }}>
@@ -96,6 +106,21 @@ let formattedDate
               </div>
             )
           )}
+        {Array.isArray(movieDetails) && trailerKey && (
+          <ul>
+            {trailerKey &&
+              trailerKey.map(e =>
+                e.slice(0, 5).map(({ key, name }) => (
+                  <li key={key}>
+                    <iframe
+                      title={name}
+                      src={`https://www.youtube.com/embed/${key}`}
+                    ></iframe>
+                  </li>
+                ))
+              )}
+          </ul>
+        )}
       </section>
     </>
   );
