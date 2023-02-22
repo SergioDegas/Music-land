@@ -1,7 +1,7 @@
 import { getTrendingMovies } from 'components/redux/recipes/operation';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectMovie } from 'components/redux/recipes/selector';
+import { useDispatch } from 'react-redux';
+
 import { Cards } from 'components/Cards/Cards';
 
 

@@ -8,7 +8,7 @@ import {
   selectMovieTrailer,
 } from 'components/redux/recipes/selector';
 import moment from 'moment/moment';
-import { nanoid } from 'nanoid';
+
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CircularDeterminate } from '../Circular';
@@ -19,14 +19,14 @@ import {
   Backdrop,
   PosterPath,
   Title,
-  Genres,
+ 
   Text,
   TextTitle,
 } from './CardsByID.styled';
 
 ///////////////////////////////////////////////////////////////
 function CardsByID() {
-  const iDCard = nanoid();
+ 
   const dispatch = useDispatch();
   const movieDetails = useSelector(selectMovieID);
   const [trailerKey, setTrailerKey] = useState();
@@ -51,7 +51,7 @@ function CardsByID() {
   }, [results]);
 
 
-  let formattedDate;
+
   return (
     <>
       <section>
