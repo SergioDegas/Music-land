@@ -37,6 +37,9 @@ const handelFulfilledMovieID = (state, action) => {
   state.itemsID = Array.isArray(action.payload)
     ? action.payload
     : [action.payload];
+  state.modalItem = Array.isArray(action.payload)
+  ? action.payload
+  : [action.payload];
 };
 
 
@@ -49,6 +52,7 @@ const MovieSlice = createSlice({
     page: 1,
     isLoading: false,
     error: null,
+    modalItem:[]
   },
   // getMovieDetails,
   // getMovieCredits,

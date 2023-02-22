@@ -7,10 +7,6 @@ import { Cards } from 'components/Cards/Cards';
 
 const Homepage = () => {
   const dispatch = useDispatch();
-  
-
-  
-
   useEffect(() => {
     dispatch(getTrendingMovies());
   }, [dispatch]);

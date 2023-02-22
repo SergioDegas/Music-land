@@ -25,7 +25,7 @@ function CardsByID() {
   return (
     <>
       <section>
-        {results.map(
+        {results && results.map(
           ({
             backdrop_path,
             original_title,
