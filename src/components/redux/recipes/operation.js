@@ -25,8 +25,8 @@ export const getTrendingMovies = createAsyncThunk(
     'movie/trailer',
     async (id, thunkAPI) => {
       try {
-        const { data } = await axios.get(
-          `movie/${id}/videos??api_key=${API_KEY}`
+        const {data} = await axios.get(
+          `movie/${id}/videos?api_key=${API_KEY}&language=en-US`
         );
         return data;
       } catch (error) {

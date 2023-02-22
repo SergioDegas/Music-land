@@ -1,7 +1,14 @@
 import { Box } from '@mui/material';
-import { getMovieDetails } from 'components/redux/recipes/operation';
-import { selectMovieID } from 'components/redux/recipes/selector';
+import {
+  getMovieDetails,
+  getMovieTrailer,
+} from 'components/redux/recipes/operation';
+import {
+  selectMovieID,
+  selectMovieTrailer,
+} from 'components/redux/recipes/selector';
 import moment from 'moment/moment';
+
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CircularDeterminate } from '../Circular';
@@ -12,23 +19,42 @@ import {
   Backdrop,
   PosterPath,
   Title,
-  Genres,
+ 
   Text,
   TextTitle,
 } from './CardsByID.styled';
 
+///////////////////////////////////////////////////////////////
 function CardsByID() {
+ 
   const dispatch = useDispatch();
   const movieDetails = useSelector(selectMovieID);
+  const [trailerKey, setTrailerKey] = useState();
 
   useEffect(() => {
     dispatch(getMovieDetails('76600'));
   }, [dispatch]);
-let formattedDate
+  useEffect(() => {
+    dispatch(getMovieTrailer('76600'));
+  }, [dispatch]);
+  const results = useSelector(selectMovieTrailer);
+  // console.log(' us', results);
+  useEffect(() => {
+    const newTrailerKeys = results.map(({ results }) => {
+      return results.map(({ key, name }) => {
+        
+        return { key, name };
+      });
+    });
+
+    setTrailerKey(newTrailerKeys);
+  }, [results]);
+
+
+
   return (
     <>
       <section>
-
         {Array.isArray(movieDetails) &&
           movieDetails.map(
             ({
@@ -66,7 +92,6 @@ let formattedDate
                           }
                           alt={original_title}
                         />
-
                       </Box>
 
                       <Box sx={{ ml: 4 }}>
@@ -83,7 +108,7 @@ let formattedDate
 
                           {genres &&
                             genres.map(({ name, id }) => (
-                              <Text key={id}>{name}</Text>
+                              <Text key={id}>| {name}</Text>
                             ))}
                         </Box>
                         <Text>{overview}</Text>
@@ -96,6 +121,21 @@ let formattedDate
               </div>
             )
           )}
+        {Array.isArray(movieDetails) && trailerKey && (
+          <ul>
+            {trailerKey &&
+              trailerKey.map(e =>
+                e.slice(0, 5).map(({ key, name }) => (
+                  <li key={key}>
+                    <iframe
+                      title={name}
+                      src={`https://www.youtube.com/embed/${key}`}
+                    ></iframe>
+                  </li>
+                ))
+              )}
+          </ul>
+        )}
       </section>
     </>
   );

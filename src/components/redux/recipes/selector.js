@@ -10,6 +10,8 @@ export const selectMovie = state => state.movie.items;
 
 export const selectMovieID = state => state.movie.itemsID;
 
+export const selectMovieTrailer = state => state.movie.trailer;
+
 export const selectFavorite = state => state.movie.favorite;
 
 export const selectIsLoading = state => state.movie.isLoading;

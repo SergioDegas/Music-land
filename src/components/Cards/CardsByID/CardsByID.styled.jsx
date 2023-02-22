@@ -6,6 +6,7 @@ export const BackdropPath = styled.img`
   z-index: 1;
   height: 530px;
   object-fit: cover;
+  filter: blur(2px);
 `;
 export const Relative = styled(Box)`
   position: relative;
