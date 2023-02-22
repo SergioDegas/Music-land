@@ -9,7 +9,7 @@ export const getTrendingMovies = createAsyncThunk(
   'movie/trends',
   async(_,thunkAPI) => {
   try {
-    const {data} = await axios.get(`trending/movie/day?api_key=${API_KEY}`)
+    const {data} =await axios.get(`trending/movie/day?api_key=${API_KEY}`)
     return data;
 
   } catch (error) {
@@ -19,6 +19,21 @@ export const getTrendingMovies = createAsyncThunk(
   )
 
 
+
+
+  export const getMovieTrailer = createAsyncThunk(
+    'movie/trailer',
+    async (id, thunkAPI) => {
+      try {
+        const { data } = await axios.get(
+          `movie/${id}/videos??api_key=${API_KEY}`
+        );
+        return data;
+      } catch (error) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+    }
+  );
 // Search of movies by name
 export const searchByName = createAsyncThunk(
   'movie/search',
@@ -39,7 +54,7 @@ export const getMovieDetails = createAsyncThunk(
   'movie/details',
   async (id, thunkAPI) => {
     try {
-      const { data } = await axios.get(
+      const  {data}  = await axios.get(
         `movie/${id}?api_key=${API_KEY}&language=en-US`
       );
       return data;
