@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { selectModal } from 'components/redux/recipes/selector';
 import {
-  Backdrop,
+  BackdropOne,
   BackdropPath,
   PosterPath,
   Title,
@@ -21,6 +21,7 @@ import {
   GenreTitle,
 } from './CardsModalStyled';
 import moment from 'moment/moment';
+import { Backdrop }  from '../CardsByID/CardsByID.styled';
 
 const style = {
   position: 'absolute',
@@ -59,7 +60,7 @@ export const FilmModal = ({ id }) => {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        slots={{ backdrop: Backdrop }}
+        slots={{ backdrop: BackdropOne }}
       >
         <Box sx={style}>
           {movie.map(
@@ -73,7 +74,7 @@ export const FilmModal = ({ id }) => {
             }) => {
               return (
                 <ModalBody key={id}>
-                  
+                  <Backdrop/>
                   <BackdropPath
                     src={
                       !backdrop_path
@@ -87,7 +88,7 @@ export const FilmModal = ({ id }) => {
                     alt="img"
                   />
                   <div
-                    style={{ position: 'absolute', top: '10%', left: '40%' }}
+                    style={{ position: 'absolute', top: '10%', left: '40%',zIndex:3 }}
                   >
                     <Title>{title}</Title>
                     <Release>Release date: {moment(release_date, 'YYYY-MM-DD').format(
@@ -98,7 +99,7 @@ export const FilmModal = ({ id }) => {
                       {genres &&
                         genres.map(genre => (
                           <GenreItem key={genre.id}>
-                            <GenreText>{genre.name} |</GenreText>
+                            <GenreText>| {genre.name}</GenreText>
                           </GenreItem>
                        
                         ))}
