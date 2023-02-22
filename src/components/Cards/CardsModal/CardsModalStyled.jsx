@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Typography } from "@mui/material";
 
 export const GenreTitle = styled.p`
 font-weight: 700;
@@ -23,7 +22,7 @@ color: #fff;
 margin: 0;
 `
 
-export const Backdrop = styled.div`
+export const BackdropOne = styled.div`
 width: 100%;
 height: 100%;
 background:rgba(255, 255, 255, 0.5);
@@ -39,15 +38,7 @@ height: 100%;
 z-index: 1;
 background-position: center center;
 background-size: cover;
-/* background: rgb(69, 68, 75);
-  background: linear-gradient(
-    54deg,
-    rgba(69, 68, 75, 1) 0%,
-    rgba(69, 68, 75, 1) 46%,
-    rgba(69, 68, 75, 1) 100%
-  ); */
-/* filter: grayscale(90%) */
-filter: blur(3px)
+filter: blur(2px)
 `
 export const PosterPath = styled.img`
 position: absolute;
@@ -57,6 +48,7 @@ transform: translate(-50%, -50%);
 border: 1px solid black;
 object-fit: cover;
 display: block;
+z-index: 3;
 
 `
 export const Title = styled.h1`
