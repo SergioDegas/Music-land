@@ -7,7 +7,8 @@ import { useSelector } from 'react-redux';
 import { List, Item, Img } from './CardsStyled';
 import { Box } from '@mui/material';
 import {CircularDeterminate} from './Circular'
-import { FilmModal } from './CardsModal';
+import { FilmModal } from './CardsModal/CardsModal';
+
 
 
 export const Cards = () => {

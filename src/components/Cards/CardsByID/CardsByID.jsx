@@ -28,6 +28,7 @@ let formattedDate
   return (
     <>
       <section>
+
         {Array.isArray(movieDetails) &&
           movieDetails.map(
             ({
@@ -65,6 +66,7 @@ let formattedDate
                           }
                           alt={original_title}
                         />
+
                       </Box>
 
                       <Box sx={{ ml: 4 }}>

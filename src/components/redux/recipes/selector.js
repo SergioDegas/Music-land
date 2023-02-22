@@ -15,3 +15,5 @@ export const selectFavorite = state => state.movie.favorite;
 export const selectIsLoading = state => state.movie.isLoading;
 
 export const selectError = state => state.movie.error;
+
+export const selectModal = state => state.movie.modalItem;
