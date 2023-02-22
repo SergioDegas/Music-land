@@ -2,7 +2,8 @@ import CardsByID from 'components/Cards/CardsByID/CardsByID';
 
 const allRecepies = () => {
   return (
-    <CardsByID/>
+     <CardsByID/>
+
   );
 }; 
 export default allRecepies;
