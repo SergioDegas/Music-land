@@ -20,13 +20,13 @@ import {
   TextTitle,
 } from './CardsByID.styled';
 
-function CardsByID() {
+function CardsByID({id}) {
   const dispatch = useDispatch();
   const movieDetails = useSelector(selectMovieID);
 
   useEffect(() => {
-    dispatch(getMovieDetails('76600'));
-  }, [dispatch]);
+    dispatch(getMovieDetails(id));
+  }, [dispatch,id]);
   
 
 
@@ -100,7 +100,7 @@ function CardsByID() {
               </div>
             )
           )}
-        {Array.isArray(movieDetails) && <Trailer width={500} height={500} />}
+        {/* {Array.isArray(movieDetails) && <Trailer width={500} height={500} />} */}
       </section>
     </>
   );

@@ -1,11 +1,10 @@
 import { useParams } from "react-router-dom"
-
+import CardsByID from "components/Cards/CardsByID/CardsByID";
 const MovieDetails = () => {
-  const {id} = useParams;
-  console.log(id)
+  const { id } = useParams();
 
 return(
-    <h1>{id}</h1>
+    <CardsByID id={id}/>
     )
 
 }
