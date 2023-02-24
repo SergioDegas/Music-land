@@ -174,13 +174,13 @@ export const Header = () => {
                       Home
                     </Typography>
                   </NavLink>
-                  <NavLink to="/allrecepies">
+                  {/* <NavLink to="/allrecepies">
                     <Typography
                       sx={{ my: 2, color: 'white', display: 'block' }}
                     >
                       All recepies
                     </Typography>
-                  </NavLink>
+                  </NavLink> */}
                   <NavLink to="/favoriterecepies">
                     <Typography
                       sx={{ my: 2, color: 'white', display: 'block' }}
