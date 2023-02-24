@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 
 
-export const Trailer = ({width, height}) => {
+export const Trailer = ({width, height,}) => {
   const [trailerKey, setTrailerKey] = useState();
   
   const results = useSelector(selectMovieTrailer);

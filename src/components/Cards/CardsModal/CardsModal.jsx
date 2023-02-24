@@ -19,6 +19,7 @@ import {
   GenreItem,
   GenreText,
   GenreTitle,
+  BtnLink
 } from './CardsModalStyled';
 import IconButton from '@mui/material/IconButton';
 import moment from 'moment/moment';
@@ -112,12 +113,14 @@ export const FilmModal = ({ id }) => {
                     <Release>Status: {status} !</Release>
                     <Release>{overview}</Release>
                     <Release> Original language: {original_language}</Release>
+                    <BtnLink to={`/allrecepies/${id}`}><Button variant="contained">Film Card</Button></BtnLink>
                   </div>
                   <IconButton 
                   sx={{position:'absolute',right:10,zIndex:3,}} 
                   onClick={handleClose}>
                     <CloseIcon sx={{fill:'white'}}/>
                   </IconButton>
+                  
                 </ModalBody>
               );
             }
