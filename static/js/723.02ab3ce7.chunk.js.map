@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/723.02ab3ce7.chunk.js","mappings":"6HAQA,UAPyB,WACzB,OACI,6CAGH,C","sources":["pages/FavoriteRecepies/FavoriteRecepies.jsx"],"sourcesContent":["\nconst FavoriteRecepies = () => {\nreturn(\n    <h1>Favorite Recepies</h1>\n    )\n\n}\n\nexport default FavoriteRecepies;"],"names":[],"sourceRoot":""}

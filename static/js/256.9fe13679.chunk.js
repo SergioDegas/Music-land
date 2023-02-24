@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkTrailers=self.webpackChunkTrailers||[]).push([[256],{9256:function(e,n,r){r.r(n);var t=r(184);n.default=function(){return(0,t.jsxs)("main",{style:{textAlign:"center"},children:[(0,t.jsx)("b",{style:{fontSize:64},children:"404"}),(0,t.jsx)("p",{children:"Sorry, we couldn't find that page :("})]})}}}]);
+//# sourceMappingURL=256.9fe13679.chunk.js.map

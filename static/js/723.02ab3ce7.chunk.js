@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkTrailers=self.webpackChunkTrailers||[]).push([[723],{8723:function(e,r,s){s.r(r);var i=s(184);r.default=function(){return(0,i.jsx)("h1",{children:"Favorite Recepies"})}}}]);
+//# sourceMappingURL=723.02ab3ce7.chunk.js.map
