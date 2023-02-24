@@ -26,7 +26,7 @@ export const getTrendingMovies = createAsyncThunk(
     async (id, thunkAPI) => {
       try {
         const { data } = await axios.get(
-          `movie/${id}/videos??api_key=${API_KEY}`
+          `movie/${id}/videos?api_key=${API_KEY}`
         );
         return data;
       } catch (error) {
