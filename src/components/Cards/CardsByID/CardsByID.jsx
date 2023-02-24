@@ -29,7 +29,7 @@ function CardsByID({ id }) {
   }, [dispatch, id]);
 
   useEffect(() => {
-    dispatch(getMovieTrailer(id.slice(0,1)));
+    dispatch(getMovieTrailer(id));
   }, [dispatch, id]);
 
   // console.log(trailerKey);
