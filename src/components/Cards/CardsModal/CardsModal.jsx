@@ -19,9 +19,12 @@ import {
   GenreItem,
   GenreText,
   GenreTitle,
+  BtnLink
 } from './CardsModalStyled';
+import IconButton from '@mui/material/IconButton';
 import moment from 'moment/moment';
 import { Backdrop }  from '../CardsByID/CardsByID.styled';
+import CloseIcon from '@mui/icons-material/Close';
 
 const style = {
   position: 'absolute',
@@ -71,6 +74,9 @@ export const FilmModal = ({ id }) => {
               backdrop_path,
               release_date,
               genres,
+              status,
+              overview,
+              original_language
             }) => {
               return (
                 <ModalBody key={id}>
@@ -104,8 +110,17 @@ export const FilmModal = ({ id }) => {
                        
                         ))}
                     </GenresList>
+                    <Release>Status: {status} !</Release>
+                    <Release>{overview}</Release>
+                    <Release> Original language: {original_language}</Release>
+                    <BtnLink to={`/allrecepies/${id}`}><Button variant="contained">Film Card</Button></BtnLink>
                   </div>
-                  <button onClick={handleClose}>Close</button>
+                  <IconButton 
+                  sx={{position:'absolute',right:10,zIndex:3,}} 
+                  onClick={handleClose}>
+                    <CloseIcon sx={{fill:'white'}}/>
+                  </IconButton>
+                  
                 </ModalBody>
               );
             }

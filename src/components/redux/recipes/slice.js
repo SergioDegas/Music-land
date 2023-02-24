@@ -82,7 +82,7 @@ const MovieSlice = createSlice({
       .addCase(getMovieDetails.rejected, handelReject)
       .addCase(getMovieCredits.rejected, handelReject)
       .addCase(getMovieReviews.rejected, handelReject)
-      .addCase(getMovieTrailer.rejected, handelPending)
+      .addCase(getMovieTrailer.rejected, handelReject)
 
       .addCase(searchByName.fulfilled, handelFulfilled)
       .addCase(getTrendingMovies.fulfilled, handelFulfilledTrend)

@@ -1,10 +1,14 @@
 import { Box } from '@mui/material';
 import { getMovieDetails } from 'components/redux/recipes/operation';
-import { selectMovieID } from 'components/redux/recipes/selector';
+import {
+  selectMovieID,
+
+} from 'components/redux/recipes/selector';
 import moment from 'moment/moment';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CircularDeterminate } from '../Circular';
+import { Trailer } from '../Trailer/Trailer';
 import {
   Absolute,
   BackdropPath,
@@ -12,7 +16,6 @@ import {
   Backdrop,
   PosterPath,
   Title,
-  Genres,
   Text,
   TextTitle,
 } from './CardsByID.styled';
@@ -24,11 +27,13 @@ function CardsByID() {
   useEffect(() => {
     dispatch(getMovieDetails('76600'));
   }, [dispatch]);
-let formattedDate
+  
+
+
+  // console.log(trailerKey);
   return (
     <>
       <section>
-
         {Array.isArray(movieDetails) &&
           movieDetails.map(
             ({
@@ -66,7 +71,6 @@ let formattedDate
                           }
                           alt={original_title}
                         />
-
                       </Box>
 
                       <Box sx={{ ml: 4 }}>
@@ -96,6 +100,7 @@ let formattedDate
               </div>
             )
           )}
+        {Array.isArray(movieDetails) && <Trailer width={500} height={500} />}
       </section>
     </>
   );
