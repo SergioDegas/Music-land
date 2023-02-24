@@ -31,8 +31,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import { theme } from '../../theme';
 import { NavLink } from 'react-router-dom';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { selectSearch } from 'components/redux/recipes/selector';
+import { useDispatch,  } from 'react-redux';
+
 import { searchByName } from 'components/redux/recipes/operation';
 
 import { Register } from './Register';

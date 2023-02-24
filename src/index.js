@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <BrowserRouter>
+        <BrowserRouter basename="/Trailers">
           <StyledEngineProvider injectFirst>
             <App />
           </StyledEngineProvider>
@@ -22,4 +22,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </Provider>
   </React.StrictMode>
 );
-// basename='Music-land'
+// basename='/Trailers'

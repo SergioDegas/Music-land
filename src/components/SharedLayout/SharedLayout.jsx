@@ -12,11 +12,11 @@ export const SharedLayout = () => {
     </>
   );
 };
-   {/* <Header>
-        <nav>
-          <Link to="/" end>
-            Home
-          </Link>
-          <Link to="/movies">Movies</Link>
-        </nav>
-      </Header> */}
+  //  <Header>
+  //       <nav>
+  //         <Link to="/" end>
+  //           Home
+  //         </Link>
+  //         <Link to="/movies">Movies</Link>
+  //       </nav>
+  //     </Header> 

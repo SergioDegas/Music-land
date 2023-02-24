@@ -1,9 +1,9 @@
 import { Box } from '@mui/material';
-import { getMovieDetails } from 'components/redux/recipes/operation';
 import {
-  selectMovieID,
-
-} from 'components/redux/recipes/selector';
+  getMovieDetails,
+  getMovieTrailer,
+} from 'components/redux/recipes/operation';
+import { selectMovieID } from 'components/redux/recipes/selector';
 import moment from 'moment/moment';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,15 +20,17 @@ import {
   TextTitle,
 } from './CardsByID.styled';
 
-function CardsByID({id}) {
+function CardsByID({ id }) {
   const dispatch = useDispatch();
   const movieDetails = useSelector(selectMovieID);
 
   useEffect(() => {
     dispatch(getMovieDetails(id));
-  }, [dispatch,id]);
-  
+  }, [dispatch, id]);
 
+  useEffect(() => {
+    dispatch(getMovieTrailer(id.slice(0,1)));
+  }, [dispatch, id]);
 
   // console.log(trailerKey);
   return (
@@ -100,7 +102,7 @@ function CardsByID({id}) {
               </div>
             )
           )}
-        {/* {Array.isArray(movieDetails) && <Trailer width={500} height={500} />} */}
+        {Array.isArray(movieDetails) && <Trailer width={500} height={500} />}
       </section>
     </>
   );

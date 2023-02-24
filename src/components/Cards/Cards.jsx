@@ -1,6 +1,6 @@
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { selectMovie } from 'components/redux/recipes/selector';
 import { useSelector } from 'react-redux';
@@ -8,7 +8,7 @@ import { List, Item, Img } from './CardsStyled';
 import { Box } from '@mui/material';
 import {CircularDeterminate} from './Circular'
 import { FilmModal } from './CardsModal/CardsModal';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 
 export const Cards = () => {
@@ -16,7 +16,7 @@ export const Cards = () => {
   const BASE_IMG = 'https://image.tmdb.org/t/p/w500/';
   return (
     <List>
-      {results.map(({ title, id, poster_path, vote_average, overview }) => (
+      {results && results.map(({ title, id, poster_path, vote_average, overview }) => (
         <Item key={id}>
           <Box sx={{position: 'relative'}}>
           <Card sx={{ maxWidth: 342, minHeight: 629 }}>
