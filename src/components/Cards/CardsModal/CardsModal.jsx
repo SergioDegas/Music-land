@@ -113,7 +113,7 @@ export const FilmModal = ({ id }) => {
                     <Release>Status: {status} !</Release>
                     <Release>{overview}</Release>
                     <Release> Original language: {original_language}</Release>
-                    <BtnLink to={`/allrecepies/${id}`}><Button variant="contained">Film Card</Button></BtnLink>
+                    <BtnLink to={`/movie/${id}`}><Button variant="contained">Film Card</Button></BtnLink>
                   </div>
                   <IconButton 
                   sx={{position:'absolute',right:10,zIndex:3,}} 

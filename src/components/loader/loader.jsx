@@ -1,6 +1,6 @@
 import { Oval } from 'react-loader-spinner';
 
-const loader = () => {
+const Loader = () => {
   return (
     <Oval
       height={80}
@@ -21,4 +21,4 @@ const loader = () => {
     />
   );
 };
-export default loader;
+export default Loader;
