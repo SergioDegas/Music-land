@@ -8,7 +8,7 @@ import { List, Item, Img } from './CardsStyled';
 import { Box } from '@mui/material';
 import {CircularDeterminate} from './Circular'
 import { FilmModal } from './CardsModal/CardsModal';
-// import { Link } from 'react-router-dom';
+
 
 
 export const Cards = () => {
