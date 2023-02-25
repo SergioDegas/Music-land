@@ -17,7 +17,7 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { useState, useMemo, } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
-import CookieOutlinedIcon from '@mui/icons-material/CookieOutlined';
+import MovieCreationOutlinedIcon from '@mui/icons-material/MovieCreationOutlined';
 import Button from '@mui/material/Button';
 import {
   Search,
@@ -57,10 +57,6 @@ const useToggleOnFocus = (initialState = false) => {
 export const Header = () => {
    
    const dispatch = useDispatch();
-// const value = useSelector(selectSearch)
-
-//  console.log(value);
-  //  dispatch(searchByName(query));
    const handleQuery = e => {
      e.preventDefault();
 
@@ -96,14 +92,14 @@ export const Header = () => {
             >
               <MenuIcon />
             </IconButton>
-            <CookieOutlinedIcon
+            <MovieCreationOutlinedIcon
               sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
             />
             <Typography
               variant="h6"
               noWrap
               component="a"
-              href="/"
+              href="/Trailers"
               sx={{
                 mr: 15,
                 display: { xs: 'none', md: 'flex' },
@@ -114,9 +110,9 @@ export const Header = () => {
                 textDecoration: 'none',
               }}
             >
-              Recipes
+              FilmLand
             </Typography>
-            <CookieOutlinedIcon
+            <MovieCreationOutlinedIcon
               sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}
             />
             <Typography
@@ -171,21 +167,14 @@ export const Header = () => {
                     <Typography
                       sx={{ my: 2, color: 'white', display: 'block' }}
                     >
-                      Home
+                    Home
                     </Typography>
                   </NavLink>
-                  {/* <NavLink to="/allrecepies">
+                  <NavLink to="/movie">
                     <Typography
                       sx={{ my: 2, color: 'white', display: 'block' }}
                     >
-                      All recepies
-                    </Typography>
-                  </NavLink> */}
-                  <NavLink to="/favoriterecepies">
-                    <Typography
-                      sx={{ my: 2, color: 'white', display: 'block' }}
-                    >
-                      Favorite recepies
+                    Movie
                     </Typography>
                   </NavLink>
                 </Box>

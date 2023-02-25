@@ -9,6 +9,7 @@ const Homepage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getTrendingMovies());
+    document.body.style.backgroundColor = "teal"
   }, [dispatch]);
 
   return (
