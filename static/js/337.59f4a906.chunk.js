@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkTrailers=self.webpackChunkTrailers||[]).push([[337],{337:function(e,r,s){s.r(r);var i=s(184);r.default=function(){return(0,i.jsx)("h1",{children:"MovieList"})}}}]);
+//# sourceMappingURL=337.59f4a906.chunk.js.map
