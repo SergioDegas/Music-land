@@ -25,6 +25,7 @@ import IconButton from '@mui/material/IconButton';
 import moment from 'moment/moment';
 import { Backdrop }  from '../CardsByID/CardsByID.styled';
 import CloseIcon from '@mui/icons-material/Close';
+import { Link } from 'react-router-dom';
 
 const style = {
   position: 'absolute',
@@ -57,7 +58,10 @@ export const FilmModal = ({ id }) => {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Link to={`/movie/${id}`} style={{textDecoration:'none'}}>
+      <Button size='small' variant='contained' sx={{p:-1,ml:0.5}}>Movie Page</Button>
+      </Link>
+      <Button size='small' variant='contained' sx={{p:-1,ml:0.5}} onClick={handleOpen}>Preview</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -113,14 +117,22 @@ export const FilmModal = ({ id }) => {
                     <Release>Status: {status} !</Release>
                     <Release>{overview}</Release>
                     <Release> Original language: {original_language}</Release>
-                    <BtnLink to={`/movie/${id}`}><Button variant="contained">Film Card</Button></BtnLink>
+                    <div style={{display:'flex',marginTop:'50px'}}>
+                    <BtnLink to={`/movie/${id}`}>
+                    <Button style={{
+                    backgroundColor:'#21b6ae'
+                    }}
+                    variant="contained"
+                    >Film Card
+                    </Button>
+                    </BtnLink>
+                    </div>
                   </div>
                   <IconButton 
                   sx={{position:'absolute',right:10,zIndex:3,}} 
                   onClick={handleClose}>
                     <CloseIcon sx={{fill:'white'}}/>
                   </IconButton>
-                  
                 </ModalBody>
               );
             }
