@@ -35,18 +35,17 @@ export const Absolute = styled(Box)`
   z-index: 3;
 `;
 
-
 export const PosterPath = styled.img`
- width: 300px;
- height: 450px;
-  
- 
+  width: 300px;
+  height: 450px;
+
   object-fit: cover;
-`; 
+`;
 export const Title = styled.h2`
-margin: 0;
+  margin: 0;
   color: #ececec;
   font-weight: 700;
+  display: flex;
 `;
 export const TextTitle = styled.p`
   margin: 0;
@@ -57,7 +56,19 @@ export const TextTitle = styled.p`
   opacity: 0.8;
 `;
 export const Text = styled.p`
-margin: 0;
+  margin: 0;
   color: #ececec;
-  
+  font-family: 'Source Sans Pro', Arial, sans-serif;
 `;
+
+export const ModalBox = styled(Box)`
+position: absolute;
+ top: 50%;
+ left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1200;
+  height: 700;
+  backgroundColor:  'background.paper';
+  
+  boxShadow: 24;
+  ;`;
