@@ -20,7 +20,7 @@ export const Cards = () => {
     textAlign:'center',  
     marginRight:'auto',
     marginLeft:'auto'}}>
-      <h1> <TagIcon/>Trending movies today</h1>
+      <h1 style={{color:'yellow'}}> <TagIcon sx={{fill:'#000'}}/>Trending movies today</h1>
     <List>
       {results && results.map(({ title, id, poster_path, vote_average, overview }) => (
         <Item key={id}>
