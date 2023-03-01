@@ -3,14 +3,12 @@ import AppBar from '@mui/material/AppBar';
 import MovieFilterOutlinedIcon from '@mui/icons-material/MovieFilterOutlined';
 import { Typography } from '@mui/material';
 import { Search } from './Search';
-import { useState } from 'react';
-import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
+
 export const Header = () => {
- const [show,setShow] = useState(false)
- const handleShow = () => {
-!show ? setShow(true) : setShow(false)
-}
+//  const [show,setShow] = useState(false)
+//  const handleShow = () => {
+// !show ? setShow(true) : setShow(false)
+// }
   return (
     <>
     
