@@ -2,7 +2,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
-export const CircularDeterminate = ({percent}) => {
+export const CircularDeterminate = ({percent, size="45px"}) => {
   return (
     <Box 
     sx={{ position: 'relative',
@@ -10,7 +10,7 @@ export const CircularDeterminate = ({percent}) => {
     backgroundColor:'#032541',
     borderRadius:'50%',}}>
     <CircularProgress 
-    size="45px" 
+    size={size}
     sx={{borderRadius: 5,borderColor:'#032541'}}
     variant="determinate" 
     value={Math.round(percent * 10)}

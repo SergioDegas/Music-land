@@ -43,6 +43,22 @@ const handelFulfilledMovieID = (state, action) => {
     ? action.payload
     : [action.payload];
 };
+const handelFulfilledCredits = (state, action) => {
+  state.isLoading = false;
+  state.error = null;
+
+  state.credits = Array.isArray(action.payload)
+    ? action.payload
+    : [action.payload];
+};
+const handelFulfilledReviews = (state, action) => {
+  state.isLoading = false;
+  state.error = null;
+
+  state.reviews = Array.isArray(action.payload)
+    ? action.payload
+    : [action.payload];
+};
 const handelFulfilledTrailer = (state, action) => {
   state.isLoading = false;
   state.error = null;
@@ -58,6 +74,8 @@ const MovieSlice = createSlice({
     items: [],
     itemsID: [],
     trailer: [],
+    credits: [],
+    reviews: [],
     query: '',
     page: 1,
     isLoading: false,
@@ -87,8 +105,8 @@ const MovieSlice = createSlice({
       .addCase(searchByName.fulfilled, handelFulfilled)
       .addCase(getTrendingMovies.fulfilled, handelFulfilledTrend)
       .addCase(getMovieDetails.fulfilled, handelFulfilledMovieID)
-      .addCase(getMovieCredits.fulfilled, handelFulfilled)
-      .addCase(getMovieReviews.fulfilled, handelFulfilled)
+      .addCase(getMovieCredits.fulfilled, handelFulfilledCredits)
+      .addCase(getMovieReviews.fulfilled, handelFulfilledReviews)
       .addCase(getMovieTrailer.fulfilled, handelFulfilledTrailer);
   },
 });
