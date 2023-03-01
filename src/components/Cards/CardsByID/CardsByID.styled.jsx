@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Box } from '@mui/material';
-import { randomColor } from 'randomcolor';
 
 export const BackdropPath = styled.img`
   width: 100%;

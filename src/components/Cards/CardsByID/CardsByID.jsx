@@ -29,8 +29,8 @@ import {
   ReviewsCards,
 } from './CardsByID.styled';
 import randomColor from 'randomcolor';
-import { Link, Outlet } from 'react-router-dom';
-import { Reviews } from '../../../pages/Reviews/Reviews';
+import { Link, } from 'react-router-dom';
+
 // import { Reviews } from './Reviews/Reviews';
 
 function CardsByID({ id }) {
