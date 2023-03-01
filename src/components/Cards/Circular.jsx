@@ -32,7 +32,7 @@ export const CircularDeterminate = ({percent, size="45px"}) => {
         justifyContent: 'center',
       }}
     >
-      <Typography variant="caption" color="#fff">
+      <Typography sx={{fontSize:"20px", fontWeight:'800'}} variant="caption" color="#fff">
         {`${Math.round(percent * 10)}%`}
       </Typography>
     </Box>
