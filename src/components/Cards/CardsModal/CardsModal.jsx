@@ -103,12 +103,9 @@ export const FilmModal = ({ id }) => {
             }) => {
               return (
                 <ModalBody key={id}>
-                  <Backdrop />
+                  <Backdrop style={{}}/>
                   <BackdropPath
-                    src={
-                      !backdrop_path
-                        ? `No img`
-                        : `${BASE_BACKDROP}${backdrop_path}`
+                    src={!backdrop_path? `No img`: `${BASE_BACKDROP}${backdrop_path}`
                     }
                     alt=""
                   />

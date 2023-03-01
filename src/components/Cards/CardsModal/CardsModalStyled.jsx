@@ -4,6 +4,12 @@ export const BtnLink = styled(Link)`
   text-decoration: none;
 `;
 
+
+export const Backdrop = styled.div`
+
+
+`
+
 export const GenreTitle = styled.p`
   font-weight: 700;
   font-size: 15px;
