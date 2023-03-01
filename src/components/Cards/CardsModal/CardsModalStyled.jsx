@@ -4,6 +4,24 @@ export const BtnLink = styled(Link)`
   text-decoration: none;
 `;
 
+
+export const Backdrop = styled.div`
+  position: absolute;
+  top: 0;
+
+  background: rgb(69, 68, 75);
+  background: linear-gradient(
+    54deg,
+    rgba(69, 68, 75, 0.7) 0%,
+    rgba(69, 68, 75, 0.6) 46%,
+    rgba(69, 68, 75, 0.5) 100%
+  );
+
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+`;
+
 export const GenreTitle = styled.p`
   font-weight: 700;
   font-size: 15px;

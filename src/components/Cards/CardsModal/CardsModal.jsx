@@ -5,7 +5,7 @@ import Modal from '@mui/material/Modal';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
-  getMovieDetails, getMovieTrailer,
+  getMovieDetails,
 } from 'components/redux/recipes/operation';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -22,13 +22,12 @@ import {
   GenreText,
   GenreTitle,
   BtnLink,
+  Backdrop
 } from './CardsModalStyled';
 import IconButton from '@mui/material/IconButton';
 import moment from 'moment/moment';
-import { Backdrop } from '../CardsByID/CardsByID.styled';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
-import { Trailer } from '../Trailer/Trailer';
 import { ChildModal } from './ChildModal';
 
 
@@ -49,7 +48,6 @@ const BASE_BACKDROP = 'https://image.tmdb.org/t/p/original';
 const BASE_IMG = 'https://image.tmdb.org/t/p/w342';
 export const FilmModal = ({ id }) => {
   const [open, setOpen] = useState(false);
-  const [show, setShown] = useState(false);
   const movie = useSelector(selectModal);
   const dispatch = useDispatch();
 
@@ -103,12 +101,9 @@ export const FilmModal = ({ id }) => {
             }) => {
               return (
                 <ModalBody key={id}>
-                  <Backdrop />
+                  <Backdrop style={{}}/>
                   <BackdropPath
-                    src={
-                      !backdrop_path
-                        ? `No img`
-                        : `${BASE_BACKDROP}${backdrop_path}`
+                    src={!backdrop_path? `No img`: `${BASE_BACKDROP}${backdrop_path}`
                     }
                     alt=""
                   />
