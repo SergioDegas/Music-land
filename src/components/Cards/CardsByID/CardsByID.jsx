@@ -25,8 +25,9 @@ import {
   Text,
   TextTitle,
   ModalBox,
-  UserImage,
+
   ReviewsCards,
+  UserImage,
 } from './CardsByID.styled';
 import randomColor from 'randomcolor';
 import { Link, } from 'react-router-dom';
@@ -242,7 +243,7 @@ function CardsByID({ id }) {
           )}
       </section>
       <section>
-        <h2> Reviews : {totalResults}</h2>
+        <h3> Socials reviews: {totalResults}</h3>
         <div>
           {results &&
             results.map(e =>
@@ -271,11 +272,9 @@ function CardsByID({ id }) {
                   </ReviewsCards>
                 ))
             )}
-          <Link to="reviews"> Reviews</Link>
+          <Link to="reviews"> Jump to all reviews</Link>
         </div>
       </section>
-  
-    
 
       <section></section>
     </>

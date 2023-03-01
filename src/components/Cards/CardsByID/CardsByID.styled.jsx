@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Box } from '@mui/material';
+import randomColor from 'randomcolor';
 
 export const BackdropPath = styled.img`
   width: 100%;
@@ -68,11 +69,22 @@ export const ModalBox = styled(Box)`
   transform: translate(-50%, -50%);
   width: 1200;
   height: 700;
-  backgroundcolor: 'background.paper';
+  background-color: 'background.paper';
 
-  boxshadow: 24; ;
+  box-shadow: 24; ;
 `;
+//  style={{
+//               margin: 0,
 
+//               backgroundColor: `${randomColor({
+//                 luminosity: 'dark',
+//                 count: 1,
+//               })}`,
+//             }}
+const color = randomColor({
+                luminosity: 'dark',
+                count: 1,
+              })
 export const UserImage = styled.div`
   margin: 0;
   padding: 0;
@@ -85,7 +97,9 @@ export const UserImage = styled.div`
   justify-content: center;
   align-items: center;
   margin-right: 20px;
+  background-color: ${color};
 `;
+
 
 export const ReviewsCards = styled.div`
   display: flex;
@@ -93,4 +107,14 @@ export const ReviewsCards = styled.div`
   /* border: 1px solid lightGray;
   border-radius: 10px;
   gap:0px; */
+`;
+export const TextReviews = styled.div`
+  color: black;
+  width: auto;
+  display: flex;
+  text-align: start;
+
+
+
+  
 `;
