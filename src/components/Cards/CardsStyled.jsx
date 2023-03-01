@@ -3,10 +3,10 @@ import styled from 'styled-components';
 export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  /* justify-content: center;
   align-items: center;
   margin-right: auto;
-  margin-left: auto;
+  margin-left: auto; */
   list-style-type: none;
 `;
 
