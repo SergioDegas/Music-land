@@ -1,4 +1,6 @@
-export const selectSearch = state => state.movie.query;
+export const selectSearch = state => state.search.query;
+
+export const selectSearchMovie = state => state.search.movie;
 
 export const selectPage = state => state.movie.page;
 
