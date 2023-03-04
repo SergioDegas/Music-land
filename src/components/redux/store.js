@@ -11,6 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { MovieReducer } from './recipes/slice';
+import { SearchReducer } from './recipes/searchSlice';
 
 
 
@@ -29,6 +30,7 @@ const persistConfig = {
 }
 const rootReducer = combineReducers({
   movie: MovieReducer,
+  search: SearchReducer,
 });
 const persReducer = persistReducer(persistConfig,rootReducer)
 
