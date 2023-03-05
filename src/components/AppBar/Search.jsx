@@ -4,14 +4,10 @@ import SearchIcon from '@mui/icons-material/Search';
 import { SearchBack, InputBox, Input, SearchBtn, Overlay } from './SearchStyle';
 import { searchByName } from 'components/redux/recipes/operation';
 import { selectSearchMovie } from 'components/redux/recipes/selector';
-import { useDispatch, useSelector } from 'react-redux';
-// import { useEffect } from 'react';
-// import { clearQuery } from 'components/redux/recipes/searchSlice'; 
+import { useDispatch, useSelector } from 'react-redux'; 
 export const Search = () => {
   const [show, setShow] = useState(false);
   const dispatch = useDispatch()
-  
-
 const handleSubmit = e => {
   e.preventDefault();
   const query = e.target.elements.search.value.trim();
@@ -19,7 +15,6 @@ const handleSubmit = e => {
     dispatch(searchByName({query}))
   }
   setShow(false)
-
 }
   const handleShow = () => {
     !show ? setShow(true) : setShow(false);
