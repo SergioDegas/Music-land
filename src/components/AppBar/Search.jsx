@@ -18,7 +18,7 @@ const handleSubmit = e => {
   if (query !== '') {
     dispatch(searchByName({query}))
   }
-  // dispatch(clearQuery())
+  setShow(false)
 
 }
   const handleShow = () => {
@@ -39,7 +39,6 @@ const handleSubmit = e => {
                 type="text" 
                 placeholder="Search..." 
                 autoComplete="off" 
-                
                 />
                 <SearchBtn type="submit">Search...</SearchBtn>
               </InputBox>
