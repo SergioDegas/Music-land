@@ -87,7 +87,6 @@ const MovieSlice = createSlice({
 
   extraReducers: builder => {
     builder
-      
       .addCase(getTrendingMovies.pending, handelPending)
       .addCase(getMovieDetails.pending, handelPending)
       .addCase(getMovieCredits.pending, handelPending)

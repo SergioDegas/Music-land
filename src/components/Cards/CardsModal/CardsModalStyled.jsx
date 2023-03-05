@@ -1,9 +1,20 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
+ 
+export const Btn = styled(Button)`
+  font-size: 10px; 
+  padding: 2px 6px; 
+  background-color: #21a2ce; 
+  border: none; 
+  border-radius: 4px; 
+  text-decoration: none; 
+  color: #333; 
+`
+  
 export const BtnLink = styled(Link)`
   text-decoration: none;
 `;
-
 
 export const Backdrop = styled.div`
   position: absolute;

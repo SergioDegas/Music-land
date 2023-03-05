@@ -22,7 +22,8 @@ import {
   GenreText,
   GenreTitle,
   BtnLink,
-  Backdrop
+  Backdrop,
+  Btn
 } from './CardsModalStyled';
 import IconButton from '@mui/material/IconButton';
 import moment from 'moment/moment';
@@ -65,20 +66,17 @@ export const FilmModal = ({ id }) => {
   const handleClose = () => setOpen(false);
 
   return (
-    <div>
+    <div style={{display:'flex'}}>
       <Link to={`/movie/${id}`} style={{ textDecoration: 'none' }}>
-        <Button size="small" variant="contained" sx={{ p: -1, ml: 0.5 }}>
+        <Btn style={{marginRight:2}}>
           Movie Page
-        </Button>
+        </Btn>
       </Link>
-      <Button
-        size="small"
-        variant="contained"
-        sx={{ p: -1, ml: 0.5 }}
+      <Btn
         onClick={handleOpen}
       >
         Preview
-      </Button>
+      </Btn>
       <Modal
         open={open}
         onClose={handleClose}
