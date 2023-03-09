@@ -1,4 +1,4 @@
-import { Box, Button } from '@mui/material';
+import { Box, Button,  } from '@mui/material';
 import { nanoid } from '@reduxjs/toolkit';
 import {
   ReviewsCards,
@@ -27,7 +27,16 @@ function Review({ review }) {
     >
       <Box sx={{ display: 'flex', gap: '15px' }}>
         {author_details && (
-          <UserImage>
+          <UserImage
+            // style={{
+            //   margin: 0,
+
+            //   backgroundColor: `${randomColor({
+            //     luminosity: 'dark',
+            //     count: 1,
+            //   })}`,
+            // }}
+          >
             <p
               style={{
                 width: '50px',
@@ -54,7 +63,7 @@ function Review({ review }) {
         <Button
           size="small"
           variant="contained"
-          style={{ fontSize: '16px', fontWeight: '100', height: '37px' }}
+         style={{fontSize:'16px' , fontWeight:'100',height:'37px',}}
           onClick={handleToggleHidden}
         >
           {hidden ? 'Show' : 'Hide'}
@@ -65,7 +74,7 @@ function Review({ review }) {
 }
 
 function Reviews() {
-  const { id } = useParams();
+    const { id } = useParams();
   const movieReviews = useSelector(selectMovieReviews);
   const results = movieReviews.map(({ results }) => results);
 
