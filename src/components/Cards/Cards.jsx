@@ -12,8 +12,8 @@ import TagIcon from '@mui/icons-material/Tag';
 
 
 export const Cards = () => {
-  const { results } = useSelector(selectMovie);
   const BASE_IMG = 'https://image.tmdb.org/t/p/w500/';
+  const { results } = useSelector(selectMovie);
   return (
     <div style={{
     width:1200,

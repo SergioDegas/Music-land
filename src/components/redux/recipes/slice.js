@@ -5,7 +5,6 @@ import {
   getMovieDetails,
   getMovieCredits,
   getMovieReviews,
-  searchByName,
   getMovieTrailer,
 } from './operation';
 
@@ -88,21 +87,21 @@ const MovieSlice = createSlice({
 
   extraReducers: builder => {
     builder
-      .addCase(searchByName.pending, handelPending)
+      
       .addCase(getTrendingMovies.pending, handelPending)
       .addCase(getMovieDetails.pending, handelPending)
       .addCase(getMovieCredits.pending, handelPending)
       .addCase(getMovieReviews.pending, handelPending)
       .addCase(getMovieTrailer.pending, handelPending)
 
-      .addCase(searchByName.rejected, handelReject)
+     
       .addCase(getTrendingMovies.rejected, handelReject)
       .addCase(getMovieDetails.rejected, handelReject)
       .addCase(getMovieCredits.rejected, handelReject)
       .addCase(getMovieReviews.rejected, handelReject)
       .addCase(getMovieTrailer.rejected, handelReject)
 
-      .addCase(searchByName.fulfilled, handelFulfilled)
+      
       .addCase(getTrendingMovies.fulfilled, handelFulfilledTrend)
       .addCase(getMovieDetails.fulfilled, handelFulfilledMovieID)
       .addCase(getMovieCredits.fulfilled, handelFulfilledCredits)
